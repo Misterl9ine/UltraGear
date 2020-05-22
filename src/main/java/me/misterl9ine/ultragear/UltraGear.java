@@ -44,9 +44,9 @@ public class UltraGear extends JavaPlugin implements SlimefunAddon {
         new Metrics(this, bStatsId);
 
         // Create a new Category
-        category = new Category(new NamespacedKey(this, "items"), new CustomItem(Material.DIAMOND_SWORD, "&6ExtraGear"), 1);
-        registerSword(Material.DIAMOND_SWORD, "COPPER", SlimefunItems.SYNTHETIC_DIAMOND, Arrays.asList(new Pair<>(Enchantment.DAMAGE_ALL, 10), (new Pair<>(Enchantment.DURABILITY, 10))));
-        registerArmor(ArmorSet.DIAMOND, "COPPER", SlimefunItems.SYNTHETIC_DIAMOND, Arrays.asList(new Pair<>(Enchantment.PROTECTION_ENVIRONMENTAL, 10), (new Pair<>(Enchantment.DURABILITY, 10))));
+        category = new Category(new NamespacedKey(this, "items"), new CustomItem(Material.DIAMOND_SWORD, "&6UltraGear",), 1);
+        registerSword(Material.DIAMOND_SWORD, "UltraDiamond", SlimefunItems.SYNTHETIC_DIAMOND, Arrays.asList(new Pair<>(Enchantment.DAMAGE_ALL, 10), (new Pair<>(Enchantment.DURABILITY, 10))));
+        registerArmor(ArmorSet.DIAMOND, "UltraDiamond", SlimefunItems.SYNTHETIC_DIAMOND, Arrays.asList(new Pair<>(Enchantment.PROTECTION_ENVIRONMENTAL, 10), (new Pair<>(Enchantment.DURABILITY, 10))));
     }
     private void registerSword(Material type, String component, ItemStack item, List<Pair<Enchantment, Integer>> enchantments) {
         SlimefunItemStack is = new SlimefunItemStack(component + "_SWORD", type, "&r" + ChatUtils.humanize(component) + " Sword");
@@ -55,7 +55,7 @@ public class UltraGear extends JavaPlugin implements SlimefunAddon {
             is.addUnsafeEnchantment(enchantment.getFirstValue(), enchantment.getSecondValue());
         }
 
-        SlimefunItem slimefunItem = new SlimefunItem(category, is, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] { null, item, null, null, item, null, null, new ItemStack(Material.STICK), null });
+        SlimefunItem slimefunItem = new SlimefunItem(category, is, RecipeType.MAGIC_WORKBENCH, new ItemStack[] { null, item, null, null, item, null, null, new ItemStack(Material.STICK), null });
         slimefunItem.register(this);
 
         researchId++;
@@ -86,7 +86,7 @@ public class UltraGear extends JavaPlugin implements SlimefunAddon {
 
         researchId++;
 
-        Research research = new Research(new NamespacedKey(this, component.toLowerCase() + "_armor"), researchId, ChatUtils.humanize(component) + " Armor", 5);
+        Research research = new Research(new NamespacedKey(this, component.toLowerCase() + "_armor"), researchId, ChatUtils.humanize(component) + " Armor", 30);
         research.addItems(helmet, chestplate, leggings, boots);
         research.register();
     }
