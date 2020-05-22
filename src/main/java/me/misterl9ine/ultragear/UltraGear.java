@@ -44,9 +44,9 @@ public class UltraGear extends JavaPlugin implements SlimefunAddon {
         new Metrics(this, bStatsId);
 
         // Create a new Category
-        category = new Category(new NamespacedKey(this, "items"), new CustomItem(Material.DIAMOND_SWORD, "&6UltraGear",), 1);
-        registerSword(Material.DIAMOND_SWORD, "UltraDiamond", SlimefunItems.SYNTHETIC_DIAMOND, Arrays.asList(new Pair<>(Enchantment.DAMAGE_ALL, 10), (new Pair<>(Enchantment.DURABILITY, 10))));
-        registerArmor(ArmorSet.DIAMOND, "UltraDiamond", SlimefunItems.SYNTHETIC_DIAMOND, Arrays.asList(new Pair<>(Enchantment.PROTECTION_ENVIRONMENTAL, 10), (new Pair<>(Enchantment.DURABILITY, 10))));
+        category = new Category(new NamespacedKey(this, "items"), new CustomItem(Material.DIAMOND_SWORD, "&6UltraGear"), 1);
+        registerSword(Material.DIAMOND_SWORD, "SYNTHETIC_DIAMOND", SlimefunItems.SYNTHETIC_DIAMOND, Arrays.asList(new Pair<>(Enchantment.DAMAGE_ALL, 10), (new Pair<>(Enchantment.DURABILITY, 10))));
+        registerArmor(ArmorSet.DIAMOND, "SYNTHETIC_DIAMOND", SlimefunItems.SYNTHETIC_DIAMOND, Arrays.asList(new Pair<>(Enchantment.PROTECTION_ENVIRONMENTAL, 10), (new Pair<>(Enchantment.DURABILITY, 10))));
     }
     private void registerSword(Material type, String component, ItemStack item, List<Pair<Enchantment, Integer>> enchantments) {
         SlimefunItemStack is = new SlimefunItemStack(component + "_SWORD", type, "&r" + ChatUtils.humanize(component) + " Sword");
